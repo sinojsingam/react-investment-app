@@ -1,25 +1,26 @@
-export default function Results() {
-  const data = [
-    { name: "Anom", age: 19, gender: "Male" },
-    { name: "Megha", age: 19, gender: "Female" },
-    { name: "Subham", age: 25, gender: "Male" },
-  ];
+import { formatter } from "../util/investment";
+
+export default function Results({ data }) {
   return (
     <table id="result">
       <thead>
-        <th>Year</th>
-        <th>Investment Value</th>
-        <th>Interest (Year)</th>
-        <th>Total Interest</th>
-        <th>Invested Capital</th>
+        <tr>
+          <th>Year</th>
+          <th>Investment Value</th>
+          <th>Interest (Year)</th>
+          <th>Total Interest</th>
+          <th>Invested Capital</th>
+        </tr>
       </thead>
       <tbody>
         {data.map((val, key) => {
           return (
+            //formatter.format(1000)
             <tr key={key}>
-              <td>{val.name}</td>
-              <td>{val.age}</td>
-              <td>{val.gender}</td>
+              <td>{val.year}</td>
+              <td>{formatter.format(val.interest)}</td>
+              <td>{formatter.format(val.valueEndOfYear)}</td>
+              <td>{formatter.format(val.annualInvestment)}</td>
             </tr>
           );
         })}

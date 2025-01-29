@@ -1,33 +1,33 @@
 import Input from "./Input";
 
-export default function UserInputs({ onChange, inputValue }) {
+export default function UserInputs({ onValueChange, inputValue }) {
   return (
     <div className="input-group" id="user-input">
       <Input
         name={"init_investment"}
         inputValue={inputValue.init_investment}
-        onChange={onChange}
+        onValueChange={onValueChange}
       >
         Initial investment
       </Input>
       <Input
         name={"annual_investment"}
         inputValue={inputValue.annual_investment}
-        onChange={onChange}
+        onValueChange={onValueChange}
       >
         Annual investment
       </Input>
       <Input
         name={"expected_return"}
         inputValue={inputValue.expected_return}
-        onChange={onChange}
+        onValueChange={onValueChange}
       >
         Expected Return
       </Input>
       <Input
         name={"duration"}
         inputValue={inputValue.duration}
-        onChange={onChange}
+        onValueChange={onValueChange}
       >
         Duration
       </Input>
