@@ -4,6 +4,8 @@ import Results from "./components/Results";
 import Debug from "./components/Debug";
 import { useState } from "react";
 import { calculateInvestmentResults } from "./util/investment";
+import * as React from "react";
+import BasicLineChart from "./components/BasicLineChart";
 
 let JSON_DATA = {
   initialInvestment: 0,
@@ -51,12 +53,14 @@ function App() {
         break;
     }
   }
+
   let result = calculateInvestmentResults(value);
 
   return (
     <>
       <Header />
       <UserInputs inputValue={value} onValueChange={handleChange} />
+      <BasicLineChart className={"center"} data={result}></BasicLineChart>
       <Results data={result} />
     </>
   );

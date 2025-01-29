@@ -86,4 +86,6 @@ body {
 
 .center {
   text-align: center;
+  margin: 2rem auto;
+  background-color: #83e6c044;
 }
