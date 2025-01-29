@@ -3,7 +3,7 @@ import Header from "./components/Header";
 import Results from "./components/Results";
 import Debug from "./components/Debug";
 import { useState } from "react";
-import { calculateInvestmentResults, formatter } from "./util/investment";
+import { calculateInvestmentResults } from "./util/investment";
 
 let JSON_DATA = {
   initialInvestment: 0,
@@ -14,28 +14,40 @@ let JSON_DATA = {
 
 function App() {
   const [value, setValue] = useState(JSON_DATA);
+
   function handleChange(e) {
     switch (e.target.name) {
       case "init_investment":
-        setValue((prev) => ({
-          ...prev,
-          initialInvestment: Number(e.target.value),
-        }));
+        isNaN(Number(e.target.value))
+          ? console.log("enter number")
+          : setValue((prev) => ({
+              ...prev,
+              initialInvestment: Number(e.target.value),
+            }));
         break;
       case "annual_investment":
-        setValue((prev) => ({
-          ...prev,
-          annualInvestment: Number(e.target.value),
-        }));
+        isNaN(Number(e.target.value))
+          ? console.log("enter number")
+          : setValue((prev) => ({
+              ...prev,
+              annualInvestment: Number(e.target.value),
+            }));
         break;
       case "expected_return":
-        setValue((prev) => ({
-          ...prev,
-          expectedReturn: Number(e.target.value),
-        }));
+        isNaN(Number(e.target.value))
+          ? console.log("enter number")
+          : setValue((prev) => ({
+              ...prev,
+              expectedReturn: Number(e.target.value),
+            }));
         break;
       case "duration":
-        setValue((prev) => ({ ...prev, duration: Number(e.target.value) }));
+        isNaN(Number(e.target.value))
+          ? console.log("enter number")
+          : setValue((prev) => ({
+              ...prev,
+              duration: Number(e.target.value),
+            }));
         break;
     }
   }
